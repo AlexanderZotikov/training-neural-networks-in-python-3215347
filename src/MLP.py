@@ -15,3 +15,15 @@ class Perceptron:
         """Run the perceptron. x is a python list with the input values."""
         x_sum = np.dot(np.append(x,self.bias),self.weights)
         return self.sigmoid(x_sum)
+    
+    def set_weights(self, w_init):
+        self.weights = np.array(w_init)
+
+    def sigmoid(self,x):
+        return 1/(1+np.exp(-x))
+    
+neuron = Perceptron(inputs = 2)
+neuron.set_weights([10,10,-1])
+
+print(neuron.run([0,0]))
+
